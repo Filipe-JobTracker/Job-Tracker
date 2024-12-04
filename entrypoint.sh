@@ -2,10 +2,10 @@
 
 cd /app/backend || exit 1;
 
+#if [[ -f "/app/initialized" ]]; then
+#  touch ../initialized;
+#fi
 
-if [[ -f "/app/initialized" ]]; then
-  npx prisma migrate deploy;
-  touch ../initialized;
-fi
+npx prisma migrate deploy;
 
 node -r tsconfig-paths/register dist/index.js;
