@@ -11,10 +11,10 @@ RUN chmod +x /usr/bin/entrypoint
 RUN apk update --no-cache && apk --no-cache add bash
 
 WORKDIR /app/frontend
-RUN cd /app/frontend && npm install && npm run build
+RUN npm install && npm run build
 
 WORKDIR /app/backend
-RUN cd /app/backend && npm install && npx prisma generate && npm run build
+RUN npm install && npx prisma generate && npm run build
 
 WORKDIR /app
 
