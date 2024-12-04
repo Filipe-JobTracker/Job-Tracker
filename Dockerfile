@@ -9,6 +9,7 @@ COPY ./entrypoint.sh /usr/bin/entrypoint
 RUN chmod +x /usr/bin/entrypoint
 
 RUN apk update --no-cache && apk --no-cache add bash
+RUN npm install -g typescript
 
 WORKDIR /app/frontend
 RUN npm install && npm run build
