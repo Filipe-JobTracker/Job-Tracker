@@ -6,6 +6,6 @@ cd /app/backend || exit 1;
 #  touch ../initialized;
 #fi
 
-npx prisma migrate deploy;
+npx prisma migrate deploy --name init;
 
 node -r tsconfig-paths/register dist/index.js;
