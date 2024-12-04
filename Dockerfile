@@ -12,10 +12,10 @@ RUN apk update --no-cache && apk --no-cache add bash
 RUN npm install -g typescript
 
 WORKDIR /app/frontend
-RUN npm install && npm run build
+RUN npm install --production=false && npm run build
 
 WORKDIR /app/backend
-RUN npm install && npx prisma generate && npm run build
+RUN npm install --production=false && npx prisma generate && npm run build
 
 WORKDIR /app
 
